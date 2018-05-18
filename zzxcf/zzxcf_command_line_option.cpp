@@ -8,7 +8,7 @@ namespace command_line_namespace
 	DWORD zzxcf_command_line_option_number_of_threads::number_of_threads=1;
 	extern zzxcf_command_line_option_number_of_commas option_number_of_commas("-number_of_commas","-number_of_commas","Customize the number of commas for formatting files.");
 	extern zzxcf_command_line_option_number_of_threads option_number_of_threads("-number_of_threads","-number_of_threads","Customize the number of threads for formatting files when multithread mode is turned on, exceed 64 at your own risk.");
-	extern option_number_of_padding_spaces_per_level option_do_not_padding_with_tab("-number_of_padding_spaces_per_level option_do_not_padding_with_tab","-number_of_padding_spaces_per_level option_do_not_padding_with_tab","Indent lines with space ' '(Default: tab '\\t'), [0-9]* spaces(' ') per tab('\\t').");
+	extern option_number_of_padding_spaces_per_level option_do_not_padding_with_tab("-number_of_padding_spaces_per_level_option_do_not_padding_with_tab","-number_of_padding_spaces_per_level_option_do_not_padding_with_tab","Indent lines with space ' '(Default: tab '\\t'), [0-9]* spaces(' ') per tab('\\t').");
 	extern command_line_option_parser option_print_help("-help","-h","Print help message.");
 	extern command_line_option_parser option_accumulate_map("-accumulate_map","-accumulate","Accumulate maps.");
 	extern command_line_option_parser option_cleanup_orig_files("-cleanup_orig_files","-cleanup","Delete all matched *.orig files.");
