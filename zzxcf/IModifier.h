@@ -32,13 +32,13 @@ https://www.merriam-webster.com/dictionary/modifies
 a group of things that come one after the other
 https://www.merriam-webster.com/dictionary/sequence
 */
-class TokenSequence;
+#include "TokenSequence.h"
 class IModifier
 {
 public:
 	virtual ~IModifier() {}
 public:
-	virtual TokenSequence *Modify(TokenSequence *) = 0;
+	virtual TokenSequence Modify(TokenSequence) = 0;
 };
 /*
 http://www.cplusplus.com/reference/stdexcept/
@@ -123,8 +123,8 @@ class IDecoratingModifer :public IModifier
 {
 protected:
 	IModifier *decoratedModifier;
-	virtual TokenSequence *ActionBeforeModify(TokenSequence *) = 0;
-	virtual TokenSequence *ActionAfterModify(TokenSequence *) = 0;
+	virtual TokenSequence ActionBeforeModify(TokenSequence) = 0;
+	virtual TokenSequence ActionAfterModify(TokenSequence) = 0;
 public:
 	IDecoratingModifer(IModifier *modifier)
 	{
@@ -139,7 +139,7 @@ public:
 		//do something for decoratedModifier?
 	}
 public:
-	TokenSequence *Modify(TokenSequence *tokenSequence)
+	TokenSequence Modify(TokenSequence tokenSequence)
 	{
 		return this->ActionAfterModify(this->decoratedModifier->Modify(this->ActionBeforeModify(tokenSequence)));
 	}

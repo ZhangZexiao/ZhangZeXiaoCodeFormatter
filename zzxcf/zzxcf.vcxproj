@@ -89,6 +89,7 @@
     <ClInclude Include="IModifier.h" />
     <ClInclude Include="macro.h" />
     <ClInclude Include="sqlite3.h" />
+    <ClInclude Include="TokenSequence.h" />
     <ClInclude Include="zzxcf_command_line_option.h" />
     <ClInclude Include="zzxcf_console_utility.h" />
     <ClInclude Include="zzxcf_file_operation.h" />
