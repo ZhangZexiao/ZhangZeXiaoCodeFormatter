@@ -7,7 +7,7 @@ C++ abstract class, interface
 https://docs.microsoft.com/en-us/cpp/cpp/abstract-classes-cpp
 
 
-Using virtual destructors, you can destroy objects without knowing their type —
+Using virtual destructors, you can destroy objects without knowing their type
 the correct destructor for the object is invoked using the virtual function mechanism.
 https://docs.microsoft.com/en-us/cpp/cpp/destructors-cpp
 

@@ -2394,8 +2394,6 @@ namespace format_utility_namespace
 		}
 		if(!command_line_namespace::option_do_not_convert_path_separator_from_windows_style_backslash_to_linux_style_slash_in_header_file_include_directive.is_turned_on())
 		{
-			//class_decorate_convert_path_separator_from_windows_style_backslash_to_linux_style_slash_in_header_file_include_directive convert_path_separator_from_windows_style_backslash_to_linux_style_slash_in_header_file_include_directive;
-			//convert_path_separator_from_windows_style_backslash_to_linux_style_slash_in_header_file_include_directive.process(phrase);
 			Modifier_convert_include_header_path_separator_from_backslash_to_slash backslash2slash;
 			phrase = backslash2slash.Modify(phrase);
 			if(command_line_namespace::option_save_interim_result.is_turned_on())
@@ -4059,59 +4057,7 @@ namespace format_utility_namespace
 				concat_tokens_5fixing_for(phrase,iter);
 			}
 		}
-	}
-	void class_decorate_convert_path_separator_from_windows_style_backslash_to_linux_style_slash_in_header_file_include_directive::process(zzxcf_phrase&phrase)
-	{
-		if(innerDecorator)
-		{
-			innerDecorator->process(phrase);
-		}
-		backslash_to_slash(phrase);
-	}
-	void class_decorate_convert_path_separator_from_windows_style_backslash_to_linux_style_slash_in_header_file_include_directive::backslash_to_slash(zzxcf_phrase&phrase)
-	{
-		for(zzxcf_phrase::iterator it=phrase.begin();it!=phrase.end();it++)
-		{
-			if(is_token_directive_include(*it))
-			{
-				for(size_t i=0;i<(*it).length();i++)
-				{
-					if((*it)[i]=='\\')
-					{
-						(*it)[i]='/';
-					}
-				}
-				while((*it).find("//")!=std::string::npos)
-				{
-					(*it)=(*it).replace((*it).find("//"),2,"/");
-				}
-			}
-		}
-	}
-	void class_decorate_head_file_slash_to_backslash::decorate(zzxcf_phrase&phrase)
-	{
-		if(innerDecorator)
-		{
-			innerDecorator->process(phrase);
-		}
-		slash_to_backslash(phrase);
-	}
-	void class_decorate_head_file_slash_to_backslash::slash_to_backslash(zzxcf_phrase&phrase)
-	{
-		for(zzxcf_phrase::iterator it=phrase.begin();it!=phrase.end();it++)
-		{
-			if(is_token_directive_include(*it))
-			{
-				for(size_t i=0;i<(*it).length();i++)
-				{
-					if((*it)[i]=='/')
-					{
-						(*it)[i]='\\';
-					}
-				}
-			}
-		}
-	}
+	}	
 	void class_decorate_strip_meaningless_pragmas::process(zzxcf_phrase&phrase)
 	{
 		if(innerDecorator)

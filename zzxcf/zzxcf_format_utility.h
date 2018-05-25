@@ -310,22 +310,6 @@ namespace format_utility_namespace
 		std::string pragmas;
 		std::string remove_pragmas(zzxcf_phrase&phrase);
 	};
-	class class_decorate_head_file_slash_to_backslash:
-	public class_decorator
-	{
-	public:
-		virtual void decorate(zzxcf_phrase&phrase);
-	private:
-		void slash_to_backslash(zzxcf_phrase&phrase);
-	};
-	class class_decorate_convert_path_separator_from_windows_style_backslash_to_linux_style_slash_in_header_file_include_directive:
-	public class_decorator
-	{
-	public:
-		virtual void process(zzxcf_phrase&phrase);
-	private:
-		void backslash_to_slash(zzxcf_phrase&phrase);
-	};
 	class class_decorate_surround_single_sentence_after_reserve_word_for_with_curly_bracket:
 	public class_decorate_surround_single_sentence_after_reserve_words_if_and_else_with_curly_bracket
 	{
