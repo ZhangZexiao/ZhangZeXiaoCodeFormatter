@@ -4,7 +4,7 @@
 class Modifier_convert_include_header_path_separator_from_backslash_to_slash : public IModifier
 {
 public:
-	TokenSequence Modify(TokenSequence tokenSequence)
+	TokenSequence&Modify(TokenSequence&tokenSequence)
 	{
 		TokenSequence::iterator it = tokenSequence.begin();
 		while (tokenSequence.end() != it)
