@@ -12,3 +12,4 @@
 *.ipdb
 *.pch
 *.lib
+.suo
