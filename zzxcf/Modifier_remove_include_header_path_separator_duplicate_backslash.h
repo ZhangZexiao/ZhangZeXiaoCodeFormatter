@@ -2,8 +2,7 @@
 #include "IModifier.h"
 #include "StringsManager.h"
 #include <cassert>
-#include <algorithm>
-class Modifier_convert_include_header_path_separator_from_slash_to_backslash : public IModifier
+class Modifier_remove_include_header_path_separator_duplicate_backslash : public IModifier
 {
 public:
 	TokenSequence&Modify(TokenSequence&tokenSequence)
@@ -15,7 +14,10 @@ public:
 			if (0 == it->find(StringsManager::GetString_HashInclude()))
 			{
 				assert(TokenSequence::value_type::npos == it->find(StringsManager::GetString_LineFeed()));
-				std::replace(it->begin(), it->end(), StringsManager::GetString_Slash()[0], StringsManager::GetString_BackSlash()[0]);
+				while (TokenSequence::value_type::npos != it->find(StringsManager::GetString_TwoBackSlashes()))
+				{
+					it->replace(it->find(StringsManager::GetString_TwoBackSlashes()), StringsManager::GetString_TwoBackSlashes().length(), StringsManager::GetString_BackSlash());
+				}
 			}
 			it++;
 		}

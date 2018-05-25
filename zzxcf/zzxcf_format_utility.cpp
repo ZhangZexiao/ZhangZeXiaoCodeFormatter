@@ -4,7 +4,9 @@
 #include "macro.h"
 #include "../zzxcf_tokenizer/zzxcf_tokenizer.h"
 #include "Modifier_convert_include_header_path_separator_from_backslash_to_slash.h"
+#include "Modifier_remove_include_header_path_separator_duplicate_slash.h"
 #include "Modifier_convert_include_header_path_separator_from_slash_to_backslash.h"
+#include "Modifier_remove_include_header_path_separator_duplicate_backslash.h"
 namespace format_utility_namespace
 {
 	extern zzxcf_map comment_map=zzxcf_map();
@@ -2395,7 +2397,7 @@ namespace format_utility_namespace
 		if(!command_line_namespace::option_do_not_convert_path_separator_from_windows_style_backslash_to_linux_style_slash_in_header_file_include_directive.is_turned_on())
 		{
 			Modifier_convert_include_header_path_separator_from_backslash_to_slash backslash2slash;
-			phrase = backslash2slash.Modify(phrase);
+			backslash2slash.Modify(phrase);
 			if(command_line_namespace::option_save_interim_result.is_turned_on())
 			{
 				section.clear();
