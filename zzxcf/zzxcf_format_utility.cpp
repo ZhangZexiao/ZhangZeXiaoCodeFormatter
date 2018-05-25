@@ -7,6 +7,7 @@
 #include "Modifier_remove_include_header_path_separator_duplicate_slash.h"
 #include "Modifier_convert_include_header_path_separator_from_slash_to_backslash.h"
 #include "Modifier_remove_include_header_path_separator_duplicate_backslash.h"
+#include "Modifier_replace_comment_with_white_space.h"
 namespace format_utility_namespace
 {
 	extern zzxcf_map comment_map=zzxcf_map();
@@ -2354,8 +2355,8 @@ namespace format_utility_namespace
 		}
 		if(command_line_namespace::option_strip_comments.is_turned_on())
 		{
-			class_decorate_strip_comments strip_comments;
-			strip_comments.process(phrase);
+			Modifier_replace_comment_with_white_space m;
+			m.Modify(phrase);
 			if(command_line_namespace::option_save_interim_result.is_turned_on())
 			{
 				section.clear();
@@ -2363,7 +2364,7 @@ namespace format_utility_namespace
 				interim_result_file_name=file_operation_namespace::generate_unique_file_name(interim_result_file_name,".strip_comments");
 				write_section_to_file(section,interim_result_file_name);
 				section.clear();
-				file_operation_namespace::write_file(file_operation_namespace::generate_unique_file_name(interim_result_file_name,".comments"),strip_comments.get_comments());
+				//file_operation_namespace::write_file(file_operation_namespace::generate_unique_file_name(interim_result_file_name,".comments"),strip_comments.get_comments());
 			}
 		}
 		else if(!command_line_namespace::option_do_not_strip_meaningless_comments.is_turned_on())
@@ -4278,32 +4279,7 @@ namespace format_utility_namespace
 			}
 		}
 		return r;
-	}
-	void class_decorate_strip_comments::process(zzxcf_phrase&phrase)
-	{
-		if(innerDecorator)
-		{
-			innerDecorator->process(phrase);
-		}
-		comments=remove_comments(phrase);
-	}
-	std::string class_decorate_strip_comments::get_comments()
-	{
-		return comments;
-	}
-	std::string class_decorate_strip_comments::remove_comments(zzxcf_phrase&phrase)
-	{
-		std::string r;
-		for(zzxcf_phrase::iterator it=phrase.begin();it!=phrase.end();it++)
-		{
-			if(is_token_comment(*it))
-			{
-				r+=(*it)+"\n";
-				*it=" ";
-			}
-		}
-		return r;
-	}
+	}	
 	void class_decorate_strip_duplicate_semicolon::process(zzxcf_phrase&phrase)
 	{
 		if(innerDecorator)

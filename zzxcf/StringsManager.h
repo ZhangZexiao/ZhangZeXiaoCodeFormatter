@@ -3,6 +3,26 @@
 class StringsManager
 {
 public:
+	static const std::string&GetString_WhiteSpace()
+	{
+		static const std::string whiteSpace(" ");
+		return whiteSpace;
+	}
+	static const std::string&GetString_CppStyleComment()
+	{
+		static const std::string comment("//");
+		return comment;
+	}
+	static const std::string&GetString_CStyleCommentBegin()
+	{
+		static const std::string comment("/*");
+		return comment;
+	}
+	static const std::string&GetString_CStyleCommentEnd()
+	{
+		static const std::string comment("*/");
+		return comment;
+	}
 	static const std::string&GetString_BackSlash()
 	{
 		static const std::string backSlash("\\");

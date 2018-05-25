@@ -260,16 +260,7 @@ namespace format_utility_namespace
 	private:
 		void remove_redundant_semicolon(zzxcf_phrase&phrase);
 	};
-	class class_decorate_strip_comments:
-	public class_decorator
-	{
-	public:
-		virtual void process(zzxcf_phrase&phrase);
-		std::string get_comments();
-	private:
-		std::string comments;
-		std::string remove_comments(zzxcf_phrase&phrase);
-	};
+
 	class class_decorate_strip_meaningless_comments:
 	public class_decorator
 	{
