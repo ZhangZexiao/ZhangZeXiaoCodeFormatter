@@ -13,3 +13,7 @@
 *.pch
 *.lib
 .suo
+*.stderr
+*.ilk
+*.orig
+*.idb

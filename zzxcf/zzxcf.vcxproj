@@ -88,6 +88,8 @@
   <ItemGroup>
     <ClInclude Include="IModifier.h" />
     <ClInclude Include="macro.h" />
+    <ClInclude Include="Modifier_convert_include_header_path_separator_from_backslash_to_slash.h" />
+    <ClInclude Include="Modifier_convert_include_header_path_separator_from_slash_to_backslash.h" />
     <ClInclude Include="sqlite3.h" />
     <ClInclude Include="TokenSequence.h" />
     <ClInclude Include="zzxcf_command_line_option.h" />
