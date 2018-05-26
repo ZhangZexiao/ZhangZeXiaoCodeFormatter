@@ -3,10 +3,10 @@
 class StringsManager
 {
 public:
-	static const std::string&GetString_WhiteSpace()
+	static const std::string&GetString_Space()
 	{
-		static const std::string whiteSpace(" ");
-		return whiteSpace;
+		static const std::string space(" ");
+		return space;
 	}
 	static const std::string&GetString_CppStyleComment()
 	{

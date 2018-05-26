@@ -7,7 +7,8 @@
 #include "Modifier_remove_include_header_path_separator_duplicate_slash.h"
 #include "Modifier_convert_include_header_path_separator_from_slash_to_backslash.h"
 #include "Modifier_remove_include_header_path_separator_duplicate_backslash.h"
-#include "Modifier_replace_comment_with_white_space.h"
+#include "Modifier_replace_c_comment_with_space.h"
+#include "Modifier_replace_cpp_comment_with_space.h"
 namespace format_utility_namespace
 {
 	extern zzxcf_map comment_map=zzxcf_map();
@@ -2355,7 +2356,7 @@ namespace format_utility_namespace
 		}
 		if(command_line_namespace::option_strip_comments.is_turned_on())
 		{
-			Modifier_replace_comment_with_white_space m;
+			Modifier_replace_cpp_comment_with_space m;
 			m.Modify(phrase);
 			if(command_line_namespace::option_save_interim_result.is_turned_on())
 			{
