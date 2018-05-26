@@ -9,7 +9,8 @@
 #include "Modifier_remove_include_header_path_separator_duplicate_backslash.h"
 #include "Modifier_replace_c_comment_with_space.h"
 #include "Modifier_replace_cpp_comment_with_space.h"
-#include "Modifier_replace_blank_with_space.h"
+#include "Modifier_replace_cluster_of_blank_with_space.h"
+#include "Modifier_remove_duplicate_line_feed.h"
 namespace format_utility_namespace
 {
 	extern zzxcf_map comment_map=zzxcf_map();

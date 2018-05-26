@@ -4,14 +4,15 @@
 #include <algorithm>
 #include <cassert>
 #include <cctype>
-class Modifier_replace_blank_with_space : public IModifier
+class IModifier_WhiteSpace : public IModifier
 {
-private:
+protected:
 	bool areWhiteSpaces(const TokenSequence::value_type token)const
 	{
 		assert(token.length() > 0);
 		return std::all_of(token.begin(), token.end(), [](TokenSequence::value_type::value_type c) { return std::isspace(c); });
 	}
+	virtual void changeToken(TokenSequence::iterator it) = 0;
 public:
 	TokenSequence&Modify(TokenSequence&tokenSequence)
 	{
@@ -20,15 +21,7 @@ public:
 		{
 			if (this->areWhiteSpaces(*it))
 			{
-				TokenSequence::value_type temp;
-				//erase all blank.
-				std::copy_if(it->begin(), it->end(), std::back_inserter(temp), [](TokenSequence::value_type::value_type c) { return !std::isblank(c); });
-				//if any blank been erased, then append a space.
-				if (it->length() > temp.length())
-				{
-					temp.push_back(StringsManager::GetString_Space()[0]);
-				}				
-				*it = temp;
+				this->changeToken(it);
 			}
 			it++;
 		}
