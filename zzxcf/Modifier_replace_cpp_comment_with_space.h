@@ -15,7 +15,7 @@
 class Modifier_replace_cpp_comment_with_space : public Modifier_replace_c_comment_with_space
 {
 protected:
-	bool isCppStyleComment(const std::string&token)const
+	bool isCppStyleComment(const TokenSequence::value_type&token)const
 	{
 		if (0 == token.find(StringsManager::GetString_CppStyleComment()))
 		{

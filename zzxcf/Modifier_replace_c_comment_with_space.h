@@ -15,7 +15,7 @@
 class Modifier_replace_c_comment_with_space : public IModifier
 {
 private:
-	bool isEndsWith(const std::string&s1, const std::string&s2)const
+	bool isEndsWith(const TokenSequence::value_type&s1, const TokenSequence::value_type&s2)const
 	{
 		if (s2.length() > s1.length())
 		{
@@ -24,7 +24,7 @@ private:
 		return s1.find_last_of(s2) + s2.length() == s1.length();
 	}
 protected:
-	bool isCStyleComment(const std::string&token)const
+	bool isCStyleComment(const TokenSequence::value_type&token)const
 	{
 		if (0 == token.find(StringsManager::GetString_CStyleCommentBegin()))
 		{
