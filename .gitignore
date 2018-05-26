@@ -17,3 +17,8 @@
 *.ilk
 *.orig
 *.idb
+*.filters
+*.user
+*.backup
+*.dll
+*.exe
