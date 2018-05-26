@@ -21,7 +21,14 @@ private:
 		{
 			return false;
 		}
-		return s1.find_last_of(s2) + s2.length() == s1.length();
+		//http://www.cplusplus.com/reference/string/string/find_last_of/
+		//Searches the string for the last character that matches 
+		//any of the characters specified in its arguments.
+		//auto index = s1.find_last_of(s2);
+		//http://www.cplusplus.com/reference/string/string/rfind/
+		//Searches the string for the last occurrence of the sequence specified by its arguments.
+		auto index = s1.rfind(s2);
+		return index + s2.length() == s1.length();
 	}
 protected:
 	bool isCStyleComment(const TokenSequence::value_type&token)const
