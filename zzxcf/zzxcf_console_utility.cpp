@@ -2,7 +2,7 @@
 #include "zzxcf_performance_monitor.h"
 #include "zzxcf_file_operation.h"
 #include "zzxcf_command_line_option.h"
-#include "macro.h"
+#include "..\common\Macro.h"
 namespace console_utility_namespace
 {
 	void print_progress(size_t total_number_of_files,size_t processed_number_of_files)

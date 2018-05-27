@@ -19,7 +19,7 @@
 #include <comdef.h>	
 #include <atlbase.h>
 #include <crtdbg.h>
-#include "macro.h"
+#include "..\common\Macro.h"
 namespace console_utility_namespace
 {
 	void print_progress(size_t total_number_of_files,size_t processed_number_of_files);

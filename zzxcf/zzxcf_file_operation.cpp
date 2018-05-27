@@ -1,6 +1,6 @@
 #include "zzxcf_file_operation.h"
 #include "zzxcf_command_line_option.h"
-#include "macro.h"
+#include "..\common\Macro.h"
 namespace file_operation_namespace
 {
 	std::string extract_file_name_from_file_path(const std::string&file_path)

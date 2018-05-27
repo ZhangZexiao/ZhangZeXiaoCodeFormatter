@@ -1,5 +1,5 @@
 #pragma once
-#include "IModifier.h"
+#include "..\zzxcf\IModifier.h"
 #include "..\zzxcf_tokenizer\zzxcf_tokenizer.h"
 #include <iostream>
 #include <fstream>

@@ -19,7 +19,7 @@
 #include <atlbase.h>
 #include <crtdbg.h>
 #pragma comment(lib,"sqlite3.lib")
-#include "macro.h"
+#include "..\common\Macro.h"
 #include "zzxcf_command_line_option.h"
 #include "zzxcf_performance_monitor.h"
 #include "zzxcf_file_operation.h"

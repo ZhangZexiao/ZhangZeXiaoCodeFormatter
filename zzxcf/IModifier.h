@@ -32,7 +32,7 @@ https://www.merriam-webster.com/dictionary/modifies
 a group of things that come one after the other
 https://www.merriam-webster.com/dictionary/sequence
 */
-#include "TokenSequence.h"
+#include "..\common\TokenSequence.h"
 class IModifier
 {
 public:

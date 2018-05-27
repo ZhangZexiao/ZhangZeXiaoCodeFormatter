@@ -7,6 +7,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zzxcf", "zzxcf\zzxcf.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zzxcf_tokenizer", "zzxcf_tokenizer\zzxcf_tokenizer.vcxproj", "{5BDF9F5D-73FE-41DB-A1DD-7B93B861443E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{7D45BD56-6611-4757-8B55-44897EB232AD}"
+	ProjectSection(SolutionItems) = preProject
+		common\BaseMain.h = common\BaseMain.h
+		common\Macro.h = common\Macro.h
+		common\TokenSequence.h = common\TokenSequence.h
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64

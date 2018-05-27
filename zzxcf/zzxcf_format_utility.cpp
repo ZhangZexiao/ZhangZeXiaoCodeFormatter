@@ -1,7 +1,7 @@
 #include "zzxcf_format_utility.h"
 #include "zzxcf_command_line_option.h"
 #include "zzxcf_multithread_utility.h"
-#include "macro.h"
+#include "../common/Macro.h"
 #include "../zzxcf_tokenizer/zzxcf_tokenizer.h"
 #include "Modifier_convert_include_header_path_separator_from_backslash_to_slash.h"
 #include "Modifier_remove_include_header_path_separator_duplicate_slash.h"
