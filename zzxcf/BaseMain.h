@@ -12,7 +12,7 @@ public:
 	{
 		if (2 != argc)
 		{
-			std::cout << "Error: count of arguments not equals 2.\nProvide a file path.";
+			std::cout << "Error: count of arguments not equals 2.\nProvide a file path.\n";
 			return -1;
 		}
 		std::string sourceFile(argv[1]);
@@ -38,9 +38,9 @@ public:
 		tokenize(fileContent, tokenSequence);
 		modifier.Modify(tokenSequence);
 		std::ofstream oFileStream(sourceFile, std::ofstream::trunc);
-		for each (std::string var in tokenSequence)
+		for each (TokenSequence::value_type token in tokenSequence)
 		{
-			oFileStream << var;
+			oFileStream << token;
 		}
 		oFileStream.close();
 		return 0;

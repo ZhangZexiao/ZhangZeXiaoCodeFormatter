@@ -7,8 +7,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zzxcf", "zzxcf\zzxcf.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zzxcf_tokenizer", "zzxcf_tokenizer\zzxcf_tokenizer.vcxproj", "{5BDF9F5D-73FE-41DB-A1DD-7B93B861443E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "replace_c_comment_with_space", "replace_c_comment_with_space\replace_c_comment_with_space.vcxproj", "{C6EA7C70-44D2-490E-9059-0250C47BEB3A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -33,14 +31,6 @@ Global
 		{5BDF9F5D-73FE-41DB-A1DD-7B93B861443E}.Release|x86.ActiveCfg = Release|Win32
 		{5BDF9F5D-73FE-41DB-A1DD-7B93B861443E}.Release|x86.Build.0 = Release|Win32
 		{5BDF9F5D-73FE-41DB-A1DD-7B93B861443E}.Release|x86.Deploy.0 = Release|Win32
-		{C6EA7C70-44D2-490E-9059-0250C47BEB3A}.Debug|x64.ActiveCfg = Debug|x64
-		{C6EA7C70-44D2-490E-9059-0250C47BEB3A}.Debug|x64.Build.0 = Debug|x64
-		{C6EA7C70-44D2-490E-9059-0250C47BEB3A}.Debug|x86.ActiveCfg = Debug|Win32
-		{C6EA7C70-44D2-490E-9059-0250C47BEB3A}.Debug|x86.Build.0 = Debug|Win32
-		{C6EA7C70-44D2-490E-9059-0250C47BEB3A}.Release|x64.ActiveCfg = Release|x64
-		{C6EA7C70-44D2-490E-9059-0250C47BEB3A}.Release|x64.Build.0 = Release|x64
-		{C6EA7C70-44D2-490E-9059-0250C47BEB3A}.Release|x86.ActiveCfg = Release|Win32
-		{C6EA7C70-44D2-490E-9059-0250C47BEB3A}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
