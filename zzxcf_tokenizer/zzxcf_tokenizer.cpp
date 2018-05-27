@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "zzxcf_tokenizer.h"
+#include "..\common\Macro.h"
+#include <cassert>
 bool is_char_utf8_bom_EF(char c)
 {
 	return 0xEF==c;
@@ -691,7 +693,7 @@ void strip_off_4comments_directives_strings_chars_LEFT_words_spaces_operaters(co
 		}
 	}
 }
-ZZXCF_TOKENIZER_API void tokenize(const std::string&s,std::list<std::string>&phrase)
+void tokenize(const TokenSequence::value_type &source, TokenSequence &tokenSequence)
 {
-	strip_off_4comments_directives_strings_chars_LEFT_words_spaces_operaters(s,phrase);
+	strip_off_4comments_directives_strings_chars_LEFT_words_spaces_operaters(source, tokenSequence);
 }
