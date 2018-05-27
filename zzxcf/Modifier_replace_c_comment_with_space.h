@@ -1,7 +1,6 @@
 #pragma once
-#include "IModifier.h"
+#include "IModifier_Token.h"
 #include "StringsManager.h"
-#include <cassert>
 //http://en.cppreference.com/w/cpp/string/byte/isblank
 //space is 0x20
 //horizontal tab is 0x09
@@ -12,7 +11,7 @@
 //carriage return is \r(rd)
 //whitespaces are \n(0x0a) \v(0x0b) \f(0x0c) \r(0x0d)
 //http://en.cppreference.com/w/cpp/string/byte/isspace
-class Modifier_replace_c_comment_with_space : public IModifier
+class Modifier_replace_c_comment_with_space : public IModifier_Token
 {
 private:
 	bool isEndsWith(const TokenSequence::value_type&s1, const TokenSequence::value_type&s2)const
@@ -42,18 +41,12 @@ protected:
 		}
 		return false;
 	}
-public:
-	TokenSequence&Modify(TokenSequence&tokenSequence)
+	bool isCandidateToken(TokenSequence::iterator&it)const
 	{
-		TokenSequence::iterator it = tokenSequence.begin();
-		while (tokenSequence.end() != it)
-		{
-			if (this->isCStyleComment(*it))
-			{
-				*it = StringsManager::GetString_Space();
-			}
-			it++;
-		}
-		return tokenSequence;
+		return this->isCStyleComment(*it);
+	}
+	void changeToken(TokenSequence::iterator&it)
+	{
+		*it = StringsManager::GetString_Space();
 	}
 };

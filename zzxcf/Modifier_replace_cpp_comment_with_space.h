@@ -1,7 +1,6 @@
 #pragma once
 #include "Modifier_replace_c_comment_with_space.h"
 #include "StringsManager.h"
-#include <cassert>
 //http://en.cppreference.com/w/cpp/string/byte/isblank
 //space is 0x20
 //horizontal tab is 0x09
@@ -23,18 +22,8 @@ protected:
 		}
 		return false;
 	}
-public:
-	TokenSequence&Modify(TokenSequence&tokenSequence)
+	bool isCandidateToken(TokenSequence::iterator&it)const
 	{
-		TokenSequence::iterator it = tokenSequence.begin();
-		while (tokenSequence.end() != it)
-		{
-			if (this->isCppStyleComment(*it) || this->isCStyleComment(*it))
-			{
-				*it = StringsManager::GetString_Space();
-			}
-			it++;
-		}
-		return tokenSequence;
+		return this->isCStyleComment(*it) || this->isCppStyleComment(*it);
 	}
 };

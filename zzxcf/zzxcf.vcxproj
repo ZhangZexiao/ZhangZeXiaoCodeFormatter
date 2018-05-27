@@ -88,6 +88,8 @@
   <ItemGroup>
     <ClInclude Include="BaseMain.h" />
     <ClInclude Include="IModifier.h" />
+    <ClInclude Include="IModifier_HashInclude.h" />
+    <ClInclude Include="IModifier_Token.h" />
     <ClInclude Include="IModifier_WhiteSpace.h" />
     <ClInclude Include="macro.h" />
     <ClInclude Include="Modifier_convert_include_header_path_separator_from_backslash_to_slash.h" />

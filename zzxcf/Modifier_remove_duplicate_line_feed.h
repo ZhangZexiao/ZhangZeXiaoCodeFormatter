@@ -4,7 +4,7 @@
 #include <algorithm>
 class Modifier_remove_duplicate_line_feed : public IModifier_WhiteSpace
 {
-protected:
+private:
 	void changeToken(TokenSequence::iterator&it)
 	{
 		TokenSequence::value_type temp;

@@ -8,7 +8,7 @@
 //https://www.thefreedictionary.com/cluster
 class Modifier_replace_cluster_of_blank_with_space : public IModifier_WhiteSpace
 {
-protected:
+private:
 	void changeToken(TokenSequence::iterator&it)
 	{
 		TokenSequence::value_type temp;
