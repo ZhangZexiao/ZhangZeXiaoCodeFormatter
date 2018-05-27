@@ -8,7 +8,11 @@ class IModifier_HashInclude : public IModifier_Token
 private:
 	bool isCandidateToken(TokenSequence::iterator&it)const
 	{
-		assert(TokenSequence::value_type::npos == it->find(StringsManager::GetString_LineFeed()));
-		return 0 == it->find(StringsManager::GetString_HashInclude());
+		if (0 == it->find(StringsManager::GetString_HashInclude()))
+		{
+			assert(TokenSequence::value_type::npos == it->find(StringsManager::GetString_LineFeed()));
+			return true;
+		}
+		return false;
 	}
 };

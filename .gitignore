@@ -19,6 +19,5 @@
 *.idb
 *.filters
 *.user
-*.backup
 *.dll
 *.exe

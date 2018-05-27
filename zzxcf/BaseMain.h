@@ -15,34 +15,34 @@ public:
 			std::cout << "Error: count of arguments not equals 2.\nProvide a file path.";
 			return -1;
 		}
-		std::string filePath(argv[1]);
-		if (!std::experimental::filesystem::exists(filePath))
+		std::string sourceFile(argv[1]);
+		if (!std::experimental::filesystem::exists(sourceFile))
 		{
 			std::cout << "Error: specified file doesn't exist.\n";
 			return -1;
 		}
-		std::string backupFile(filePath);
+		std::string backupFile(sourceFile);
 		backupFile += ".backup";
 		if (!std::experimental::filesystem::exists(backupFile))
 		{
-			std::experimental::filesystem::copy_file(filePath, backupFile);
+			std::experimental::filesystem::copy_file(sourceFile, backupFile);
 		}
-		std::string originalFile(filePath);
+		std::string originalFile(sourceFile);
 		originalFile += ".orig";
-		std::experimental::filesystem::copy_file(filePath, originalFile, std::experimental::filesystem::copy_options::overwrite_existing);
-		std::ifstream fileStream(filePath);
+		std::experimental::filesystem::copy_file(sourceFile, originalFile, std::experimental::filesystem::copy_options::overwrite_existing);
+		std::ifstream iFileStream(sourceFile);
 		std::string fileContent;
-		fileContent.assign(std::istreambuf_iterator<char>(fileStream), std::istreambuf_iterator<char>());
-		fileStream.close();
+		fileContent.assign(std::istreambuf_iterator<char>(iFileStream), std::istreambuf_iterator<char>());
+		iFileStream.close();
 		TokenSequence tokenSequence;
 		tokenize(fileContent, tokenSequence);
 		modifier.Modify(tokenSequence);
-		std::ofstream overwriteFileStream(filePath, std::ofstream::trunc);
+		std::ofstream oFileStream(sourceFile, std::ofstream::trunc);
 		for each (std::string var in tokenSequence)
 		{
-			overwriteFileStream << var;
+			oFileStream << var;
 		}
-		overwriteFileStream.close();
+		oFileStream.close();
 		return 0;
 	}
 };
