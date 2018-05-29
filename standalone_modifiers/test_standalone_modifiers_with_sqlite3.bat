@@ -1,4 +1,4 @@
-call build_all_standalone_modifiers.bat
+call build_all_standalone_modifiers_with_symbol_files.bat
 @echo off
 set shell_c=.\sqlite-amalgamation-3200000\shell.c
 set shell_c_backup=.\sqlite-amalgamation-3200000\shell.c.backup
