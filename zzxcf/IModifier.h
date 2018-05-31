@@ -144,11 +144,46 @@ public:
 	}
 	~IDecoratingModifer()
 	{
-		//do something for decoratedModifier?
+		delete this->decoratedModifier;
 	}
 public:
 	TokenSequence&Modify(TokenSequence&tokenSequence)
 	{
 		return this->ActionAfterModify(this->decoratedModifier->Modify(this->ActionBeforeModify(tokenSequence)));
 	}
+};
+
+class DecoratingModifer_remove_empty_token : public IDecoratingModifer
+{
+private:
+	void erase(TokenSequence&tokenSequence, TokenSequence::iterator&it)
+	{
+		TokenSequence::iterator temp = it;
+		it--;
+		tokenSequence.erase(temp);
+		it++;
+	}
+	
+	TokenSequence&ActionBeforeModify(TokenSequence&tokenSequence)
+	{
+		TokenSequence::iterator it = tokenSequence.begin();
+		while (tokenSequence.end() != it)
+		{
+			if (it->empty())
+			{
+				this->erase(tokenSequence, it);
+			}
+			else
+			{
+				it++;
+			}
+		}
+		return tokenSequence;
+	}
+	TokenSequence&ActionAfterModify(TokenSequence&tokenSequence)
+	{
+		return ActionBeforeModify(tokenSequence);
+	}
+public:
+	DecoratingModifer_remove_empty_token(IModifier *modifier):IDecoratingModifer(nullptr == modifier ? new DummyModifier() : modifier)	{ }
 };
