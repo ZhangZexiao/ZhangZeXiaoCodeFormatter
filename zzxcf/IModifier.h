@@ -162,8 +162,7 @@ private:
 		it--;
 		tokenSequence.erase(temp);
 		it++;
-	}
-	
+	}	
 	TokenSequence&ActionBeforeModify(TokenSequence&tokenSequence)
 	{
 		TokenSequence::iterator it = tokenSequence.begin();

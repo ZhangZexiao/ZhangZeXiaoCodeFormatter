@@ -1,5 +1,6 @@
 #pragma once
 #include "IModifier.h"
+#include <cassert>
 class IModifier_Token : public IModifier
 {
 protected:
@@ -11,6 +12,7 @@ public:
 		TokenSequence::iterator it = tokenSequence.begin();
 		while (tokenSequence.end() != it)
 		{
+			assert(!it->empty());
 			if (this->isCandidateToken(it))
 			{
 				this->changeToken(it);
