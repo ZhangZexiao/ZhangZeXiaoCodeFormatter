@@ -3,5 +3,9 @@ set VSCMD_DEBUG=not_empty
 call "C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\Tools\VsDevCmd.bat" -arch=amd64
 rem /Zi enable debugging information
 rem /Fd[file] name .PDB file
-for %%c in (*.cpp) do cl /Zi /Fd /EHsc %%c zzxcf_tokenizer.lib /link /MACHINE:X64
+rem /permissive- set standard-conformance mode (feature set subject to change)
+rem /std:<c++14|c++latest> C++ standard version
+rem     c++14 – ISO/IEC 14882:2014 (default)
+rem     c++latest – latest draft standard (feature set subject to change)
+for %%c in (*.cpp) do cl /permissive- /std:c++latest /Zi /Fd /EHsc %%c zzxcf_tokenizer.lib /link /MACHINE:X64
 pause

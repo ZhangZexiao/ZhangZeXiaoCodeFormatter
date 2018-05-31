@@ -8,7 +8,7 @@
 class BaseMain
 {
 public:
-	static int Main(int argc, char**argv, IModifier&modifier)
+	static int Main(int argc, char**argv, IModifier *modifier)
 	{
 		if (2 != argc)
 		{
@@ -51,9 +51,10 @@ public:
 		iFileStream.close();
 		TokenSequence tokenSequence;
 		tokenize(fileContent, tokenSequence);
-		modifier.Modify(tokenSequence);
+		modifier->Modify(tokenSequence);
+		delete modifier;
 		std::ofstream oFileStream(sourceFile, std::ofstream::trunc);
-		for each (TokenSequence::value_type token in tokenSequence)
+		for (auto &token : tokenSequence)
 		{
 			oFileStream << token;
 		}
