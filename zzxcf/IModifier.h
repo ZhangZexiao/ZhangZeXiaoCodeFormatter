@@ -158,19 +158,7 @@ class DecoratingModifer_remove_empty_token : public IDecoratingModifer
 private:
 	TokenSequence&ActionBeforeModify(TokenSequence&tokenSequence)
 	{
-		TokenSequence::iterator it = tokenSequence.begin();
-		while (tokenSequence.end() != it)
-		{
-			if (it->empty())
-			{
-				//http://www.cplusplus.com/reference/list/list/erase/
-				it = tokenSequence.erase(it);
-			}
-			else
-			{
-				it++;
-			}
-		}
+		tokenSequence.remove_if([](const TokenSequence::value_type &token) { return token.empty(); });
 		return tokenSequence;
 	}
 	TokenSequence&ActionAfterModify(TokenSequence&tokenSequence)
