@@ -40,6 +40,14 @@ public:
 public:
 	virtual TokenSequence&Modify(TokenSequence&) = 0;
 };
+class DummyModifier : public IModifier
+{
+public:
+	TokenSequence&Modify(TokenSequence&tokenSequence)
+	{
+		return tokenSequence;
+	}
+};
 /*
 http://www.cplusplus.com/reference/stdexcept/
 header <stdexcept>
