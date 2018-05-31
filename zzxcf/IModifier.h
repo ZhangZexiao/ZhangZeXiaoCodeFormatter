@@ -156,13 +156,6 @@ public:
 class DecoratingModifer_remove_empty_token : public IDecoratingModifer
 {
 private:
-	void erase(TokenSequence&tokenSequence, TokenSequence::iterator&it)
-	{
-		TokenSequence::iterator temp = it;
-		it--;
-		tokenSequence.erase(temp);
-		it++;
-	}	
 	TokenSequence&ActionBeforeModify(TokenSequence&tokenSequence)
 	{
 		TokenSequence::iterator it = tokenSequence.begin();
@@ -170,7 +163,8 @@ private:
 		{
 			if (it->empty())
 			{
-				this->erase(tokenSequence, it);
+				//http://www.cplusplus.com/reference/list/list/erase/
+				it = tokenSequence.erase(it);
 			}
 			else
 			{

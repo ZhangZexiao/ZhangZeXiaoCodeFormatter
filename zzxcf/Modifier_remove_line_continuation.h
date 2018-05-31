@@ -16,13 +16,6 @@
 class Modifier_remove_line_continuation : public IModifier_Token
 {
 private:
-	void erase(TokenSequence&tokenSequence, TokenSequence::iterator&it)
-	{
-		TokenSequence::iterator temp = it;
-		it--;
-		tokenSequence.erase(temp);
-		it++;
-	}
 	bool isCandidateToken(TokenSequence::iterator&it)const
 	{
 		return TokenSequence::value_type::npos != it->find(StringsManager::GetString_LineContinuation());
@@ -48,11 +41,11 @@ public:
 			{
 				break;
 			}
-			erase(tokenSequence, it);
+			it = tokenSequence.erase(it);
 			it->erase(0, StringsManager::GetString_LineFeed().length());
 			if (it->empty())
 			{
-				erase(tokenSequence, it);
+				it = tokenSequence.erase(it);
 			}
 		}
 		IModifier_Token::Modify(tokenSequence);
