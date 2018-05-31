@@ -58,4 +58,9 @@ public:
 		static const std::string lineFeed("\n");
 		return lineFeed;
 	}
+	static const std::string&GetString_LineContinuation()
+	{
+		static const std::string lineContinuation("\\\n");
+		return lineContinuation;
+	}
 };
