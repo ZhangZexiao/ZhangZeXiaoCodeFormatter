@@ -2,6 +2,7 @@
 #include "IModifier_Token.h"
 #include "StringsManager.h"
 #include <algorithm>
+//https://en.wikipedia.org/wiki/Code_bloat
 //http://en.cppreference.com/w/cpp/string/byte/isblank
 //space is 0x20
 //horizontal tab is 0x09
@@ -48,7 +49,7 @@ public:
 				break;
 			}
 			erase(tokenSequence, it);
-			it->erase(0, 1);
+			it->erase(0, StringsManager::GetString_LineFeed().length());
 			if (it->empty())
 			{
 				erase(tokenSequence, it);
