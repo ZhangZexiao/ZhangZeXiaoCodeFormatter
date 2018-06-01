@@ -15,17 +15,16 @@
 class Modifier_remove_duplicate_line_feed : public IModifier_WhiteSpace
 {
 private:
-	void changeToken(TokenSequence::iterator&it)
+	void changeToken(TokenSequence::value_type&token)
 	{
 		TokenSequence::value_type temp;
-		//erase all line feed.
-		std::copy_if(it->begin(), it->end(), std::back_inserter(temp), [](TokenSequence::value_type::value_type c) { return StringsManager::GetString_LineFeed()[0] != c; });
-		if (it->length() > temp.length())
+		std::copy_if(token.begin(), token.end(), std::back_inserter(temp), [](const auto &c) { return StringsManager::GetString_LineFeed()[0] != c; });
+		if (token.length() > temp.length())
 		{
 			//temp.push_back(StringsManager::GetString_LineFeed()[0]);
 			//trick to avoid line continuation issue.
 			temp = StringsManager::GetString_LineFeed() + temp;
 		}
-		*it = temp;
+		token = temp;
 	}
 };

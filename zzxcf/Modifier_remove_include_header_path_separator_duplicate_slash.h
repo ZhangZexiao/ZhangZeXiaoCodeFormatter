@@ -4,11 +4,11 @@
 class Modifier_remove_include_header_path_separator_duplicate_slash : public IModifier_HashInclude
 {
 private:
-	void changeToken(TokenSequence::iterator&it)
+	void changeToken(TokenSequence::value_type&token)
 	{
-		while (TokenSequence::value_type::npos != it->find(StringsManager::GetString_TwoSlashes()))
+		while (TokenSequence::value_type::npos != token.find(StringsManager::GetString_TwoSlashes()))
 		{
-			it->replace(it->find(StringsManager::GetString_TwoSlashes()), StringsManager::GetString_TwoSlashes().length(), StringsManager::GetString_Slash());
+			token.replace(token.find(StringsManager::GetString_TwoSlashes()), StringsManager::GetString_TwoSlashes().length(), StringsManager::GetString_Slash());
 		}
 	}
 };

@@ -16,19 +16,17 @@
 class Modifier_remove_line_continuation : public IModifier_Token
 {
 private:
-	bool isCandidateToken(TokenSequence::iterator&it)const
+	bool isCandidateToken(const TokenSequence::value_type&token)const
 	{
-		return TokenSequence::value_type::npos != it->find(StringsManager::GetString_LineContinuation());
+		return TokenSequence::value_type::npos != token.find(StringsManager::GetString_LineContinuation());
 	}
-	void changeToken(TokenSequence::iterator&it)
+	void changeToken(TokenSequence::value_type&token)
 	{
-		TokenSequence::value_type::size_type index = it->find(StringsManager::GetString_LineContinuation());
 		do
 		{
-			it->erase(index, StringsManager::GetString_LineContinuation().length());
-			index = it->find(StringsManager::GetString_LineContinuation(), index);
+			token.replace(token.find(StringsManager::GetString_LineContinuation()), StringsManager::GetString_LineContinuation().length(), TokenSequence::value_type());
 		}
-		while (TokenSequence::value_type::npos != index);
+		while (this->isCandidateToken(token));
 	}
 public:
 	TokenSequence&Modify(TokenSequence&tokenSequence)
@@ -36,7 +34,7 @@ public:
 		TokenSequence::iterator it = tokenSequence.begin();
 		while (true)
 		{
-			it = std::adjacent_find(it, tokenSequence.end(), [](const TokenSequence::value_type &t1, const TokenSequence::value_type &t2) { return t1 == StringsManager::GetString_BackSlash() && 0 == t2.find(StringsManager::GetString_LineFeed()); });
+			it = std::adjacent_find(it, tokenSequence.end(), [](const auto &t1, const auto &t2) { return t1 == StringsManager::GetString_BackSlash() && 0 == t2.find(StringsManager::GetString_LineFeed()); });
 			if (tokenSequence.end() == it)
 			{
 				break;

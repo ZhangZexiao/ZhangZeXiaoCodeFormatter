@@ -158,7 +158,8 @@ class DecoratingModifer_remove_empty_token : public IDecoratingModifer
 private:
 	TokenSequence&ActionBeforeModify(TokenSequence&tokenSequence)
 	{
-		tokenSequence.remove_if([](const TokenSequence::value_type &token) { return token.empty(); });
+		//http://en.cppreference.com/w/cpp/language/auto
+		tokenSequence.remove_if([](const auto &token) { return token.empty(); });
 		return tokenSequence;
 	}
 	TokenSequence&ActionAfterModify(TokenSequence&tokenSequence)

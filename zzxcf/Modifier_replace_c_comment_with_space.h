@@ -26,8 +26,7 @@ private:
 		//auto index = s1.find_last_of(s2);
 		//http://www.cplusplus.com/reference/string/string/rfind/
 		//Searches the string for the last occurrence of the sequence specified by its arguments.
-		auto index = s1.rfind(s2);
-		return index + s2.length() == s1.length();
+		return s1.rfind(s2) + s2.length() == s1.length();
 	}
 protected:
 	bool isCStyleComment(const TokenSequence::value_type&token)const
@@ -41,12 +40,12 @@ protected:
 		}
 		return false;
 	}
-	bool isCandidateToken(TokenSequence::iterator&it)const
+	bool isCandidateToken(const TokenSequence::value_type&token)const
 	{
-		return this->isCStyleComment(*it);
+		return this->isCStyleComment(token);
 	}
-	void changeToken(TokenSequence::iterator&it)
+	void changeToken(TokenSequence::value_type&token)
 	{
-		*it = StringsManager::GetString_Space();
+		token = StringsManager::GetString_Space();
 	}
 };

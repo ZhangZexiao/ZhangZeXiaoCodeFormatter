@@ -16,14 +16,10 @@ class Modifier_replace_cpp_comment_with_space : public Modifier_replace_c_commen
 protected:
 	bool isCppStyleComment(const TokenSequence::value_type&token)const
 	{
-		if (0 == token.find(StringsManager::GetString_CppStyleComment()))
-		{
-			return true;
-		}
-		return false;
+		return 0 == token.find(StringsManager::GetString_CppStyleComment());
 	}
-	bool isCandidateToken(TokenSequence::iterator&it)const
+	bool isCandidateToken(const TokenSequence::value_type&token)const
 	{
-		return this->isCStyleComment(*it) || this->isCppStyleComment(*it);
+		return this->isCStyleComment(token) || this->isCppStyleComment(token);
 	}
 };

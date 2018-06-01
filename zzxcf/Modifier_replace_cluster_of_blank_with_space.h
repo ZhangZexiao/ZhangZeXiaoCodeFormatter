@@ -9,16 +9,15 @@
 class Modifier_replace_cluster_of_blank_with_space : public IModifier_WhiteSpace
 {
 private:
-	void changeToken(TokenSequence::iterator&it)
+	void changeToken(TokenSequence::value_type&token)
 	{
 		TokenSequence::value_type temp;
-		//erase all blank.
-		std::copy_if(it->begin(), it->end(), std::back_inserter(temp), [](TokenSequence::value_type::value_type c) { return !std::isblank(c); });
+		std::copy_if(token.begin(), token.end(), std::back_inserter(temp), [](const auto &c) { return !std::isblank(c); });
 		//if any blank been erased, then append a space.
-		if (it->length() > temp.length())
+		if (token.length() > temp.length())
 		{
 			temp.push_back(StringsManager::GetString_Space()[0]);
 		}
-		*it = temp;
+		token = temp;
 	}
 };
