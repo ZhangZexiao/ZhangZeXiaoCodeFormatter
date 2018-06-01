@@ -28,6 +28,10 @@ private:
 		//Searches the string for the last occurrence of the sequence specified by its arguments.
 		return s1.rfind(s2) + s2.length() == s1.length();
 	}
+	void changeToken(TokenSequence::value_type&token)
+	{
+		token = StringsManager::GetString_Space();
+	}
 protected:
 	bool isCStyleComment(const TokenSequence::value_type&token)const
 	{
@@ -43,9 +47,5 @@ protected:
 	bool isCandidateToken(const TokenSequence::value_type&token)const
 	{
 		return this->isCStyleComment(token);
-	}
-	void changeToken(TokenSequence::value_type&token)
-	{
-		token = StringsManager::GetString_Space();
 	}
 };

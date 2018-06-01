@@ -99,6 +99,8 @@
     <ClInclude Include="Modifier_remove_include_header_path_separator_duplicate_slash.h" />
     <ClInclude Include="Modifier_replace_cpp_comment_with_space.h" />
     <ClInclude Include="Modifier_replace_c_comment_with_space.h" />
+    <ClInclude Include="Modifier_replace_c_sharp_comment_with_space.h" />
+    <ClInclude Include="Modifier_replace_java_comment_with_space.h" />
     <ClInclude Include="StringsManager.h" />
     <ClInclude Include="zzxcf_command_line_option.h" />
     <ClInclude Include="zzxcf_console_utility.h" />
