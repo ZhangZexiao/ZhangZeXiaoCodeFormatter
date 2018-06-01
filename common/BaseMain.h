@@ -3,6 +3,7 @@
 #include "..\zzxcf_tokenizer\zzxcf_tokenizer.h"
 #include <iostream>
 #include <fstream>
+#include <chrono>
 //https://docs.microsoft.com/en-us/cpp/standard-library/filesystem
 #include <filesystem>
 class BaseMain
@@ -51,7 +52,11 @@ public:
 		iFileStream.close();
 		TokenSequence tokenSequence;
 		tokenize(fileContent, tokenSequence);
+		auto beginTime = std::chrono::steady_clock::now();
 		modifier->Modify(tokenSequence);
+		auto endTime = std::chrono::steady_clock::now();
+		auto modifyDuration = std::chrono::duration_cast<std::chrono::duration<double>>(endTime - beginTime);
+		std::cout << "Modification took " << modifyDuration.count() << "seconds." << std::endl;
 		delete modifier;
 		std::ofstream oFileStream(sourceFile, std::ofstream::trunc);
 		for (auto &token : tokenSequence)

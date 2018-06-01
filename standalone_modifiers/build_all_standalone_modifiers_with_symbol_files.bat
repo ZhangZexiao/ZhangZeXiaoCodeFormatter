@@ -7,5 +7,9 @@ rem /permissive- set standard-conformance mode (feature set subject to change)
 rem /std:<c++14|c++latest> C++ standard version
 rem     c++14 – ISO/IEC 14882:2014 (default)
 rem     c++latest – latest draft standard (feature set subject to change)
-for %%c in (*.cpp) do cl /permissive- /std:c++latest /Zi /Fd /EHsc %%c zzxcf_tokenizer.lib /link /MACHINE:X64
+rem /showIncludes show include file names
+rem /nologo suppress copyright message
+rem /WX treat warnings as errors
+rem /analyze[-] Enable native analysis
+for %%c in (*.cpp) do cl /analyze /WX /nologo /permissive- /std:c++latest /Zi /Fd /EHsc %%c zzxcf_tokenizer.lib /link /MACHINE:X64
 pause
