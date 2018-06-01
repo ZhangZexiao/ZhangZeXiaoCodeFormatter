@@ -48,6 +48,11 @@ public:
 		static const std::string hashInclude("#include");
 		return hashInclude;
 	}
+	static const std::string&GetString_Hash()
+	{
+		static const std::string hash("#");
+		return hash;
+	}
 	/*
 	Line Feed '\n' takes the cursor to newline but does not take it to the beginning. 
 	Wheareas the Carriage Return '\r' does just the opposite. 

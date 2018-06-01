@@ -17,8 +17,26 @@ copy %sqlite3_c_backup% %sqlite3_c%
 )
 %%c %shell_c%
 %%c %sqlite3_c%
-cl %shell_c% %sqlite3_c%
+cl /nologo %shell_c% %sqlite3_c%
 pause
+if exist shell.exe del /f shell.exe
+)
+pause
+
+if exist shell.exe del /f shell.exe
+if exist %shell_c_backup% (
+del /f %shell_c%
+copy %shell_c_backup% %shell_c%
+)
+if exist %sqlite3_c_backup% (
+del /f %sqlite3_c%
+copy %sqlite3_c_backup% %sqlite3_c%
+)
+for %%c in (*.exe) do (
+echo testing %%c
+%%c %shell_c%
+%%c %sqlite3_c%
+cl /nologo %shell_c% %sqlite3_c%
 if exist shell.exe del /f shell.exe
 )
 pause

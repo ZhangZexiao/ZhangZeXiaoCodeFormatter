@@ -56,7 +56,7 @@ public:
 		modifier->Modify(tokenSequence);
 		auto endTime = std::chrono::steady_clock::now();
 		auto modifyDuration = std::chrono::duration_cast<std::chrono::duration<double>>(endTime - beginTime);
-		std::cout << "Modification took " << modifyDuration.count() << "seconds." << std::endl;
+		std::cout << "Modification took " << modifyDuration.count() << " seconds." << std::endl;
 		delete modifier;
 		std::ofstream oFileStream(sourceFile, std::ofstream::trunc);
 		for (auto &token : tokenSequence)
