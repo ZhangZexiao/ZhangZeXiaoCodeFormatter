@@ -20,7 +20,7 @@ private:
 	{
 		return TokenSequence::value_type::npos != token.find(StringsManager::GetString_LineContinuation());
 	}
-	void changeToken(TokenSequence::value_type&token)
+	void changeToken(TokenSequence::value_type&token)const
 	{
 		do
 		{
@@ -29,7 +29,7 @@ private:
 		while (this->isCandidateToken(token));
 	}
 public:
-	TokenSequence&Modify(TokenSequence&tokenSequence)
+	TokenSequence&Modify(TokenSequence&tokenSequence)const
 	{
 		TokenSequence::iterator it = tokenSequence.begin();
 		while (true)

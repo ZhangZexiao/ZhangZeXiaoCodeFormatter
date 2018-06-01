@@ -9,7 +9,7 @@
 class Modifier_replace_cluster_of_blank_with_space : public IModifier_WhiteSpace
 {
 private:
-	void changeToken(TokenSequence::value_type&token)
+	void changeToken(TokenSequence::value_type&token)const
 	{
 		TokenSequence::value_type temp;
 		std::copy_if(token.begin(), token.end(), std::back_inserter(temp), [](const auto &c) { return !std::isblank(c); });

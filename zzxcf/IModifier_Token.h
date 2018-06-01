@@ -5,11 +5,11 @@ class IModifier_Token : public IModifier
 {
 protected:
 	virtual bool isCandidateToken(const TokenSequence::value_type&)const = 0;
-	virtual void changeToken(TokenSequence::value_type&) = 0;
+	virtual void changeToken(TokenSequence::value_type&)const = 0;
 public:
-	TokenSequence&Modify(TokenSequence&tokenSequence)
+	TokenSequence&Modify(TokenSequence&tokenSequence)const
 	{
-		std::for_each(tokenSequence.begin(), tokenSequence.end(), [this](auto &it) { if (this->isCandidateToken(it)) { this->changeToken(it); } });
+		std::for_each(tokenSequence.begin(), tokenSequence.end(), [this](auto &token) { if (this->isCandidateToken(token)) { this->changeToken(token); } });
 		return tokenSequence;
 	}
 };

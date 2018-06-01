@@ -28,7 +28,7 @@ private:
 		//Searches the string for the last occurrence of the sequence specified by its arguments.
 		return s1.rfind(s2) + s2.length() == s1.length();
 	}
-	void changeToken(TokenSequence::value_type&token)
+	void changeToken(TokenSequence::value_type&token)const
 	{
 		token = StringsManager::GetString_Space();
 	}

@@ -38,12 +38,12 @@ class IModifier
 public:
 	virtual ~IModifier() {}
 public:
-	virtual TokenSequence&Modify(TokenSequence&) = 0;
+	virtual TokenSequence&Modify(TokenSequence&)const = 0;
 };
 class DummyModifier : public IModifier
 {
 public:
-	TokenSequence&Modify(TokenSequence&tokenSequence)
+	TokenSequence&Modify(TokenSequence&tokenSequence)const
 	{
 		return tokenSequence;
 	}
@@ -131,8 +131,8 @@ class IDecoratingModifer :public IModifier
 {
 protected:
 	IModifier *decoratedModifier;
-	virtual TokenSequence&ActionBeforeModify(TokenSequence&) = 0;
-	virtual TokenSequence&ActionAfterModify(TokenSequence&) = 0;
+	virtual TokenSequence&ActionBeforeModify(TokenSequence&)const = 0;
+	virtual TokenSequence&ActionAfterModify(TokenSequence&)const = 0;
 public:
 	IDecoratingModifer(IModifier *modifier)
 	{
@@ -147,7 +147,7 @@ public:
 		delete this->decoratedModifier;
 	}
 public:
-	TokenSequence&Modify(TokenSequence&tokenSequence)
+	TokenSequence&Modify(TokenSequence&tokenSequence)const
 	{
 		return this->ActionAfterModify(this->decoratedModifier->Modify(this->ActionBeforeModify(tokenSequence)));
 	}
@@ -156,13 +156,13 @@ public:
 class DecoratingModifer_remove_empty_token : public IDecoratingModifer
 {
 private:
-	TokenSequence&ActionBeforeModify(TokenSequence&tokenSequence)
+	TokenSequence&ActionBeforeModify(TokenSequence&tokenSequence)const
 	{
 		//http://en.cppreference.com/w/cpp/language/auto
 		tokenSequence.remove_if([](const auto &token) { return token.empty(); });
 		return tokenSequence;
 	}
-	TokenSequence&ActionAfterModify(TokenSequence&tokenSequence)
+	TokenSequence&ActionAfterModify(TokenSequence&tokenSequence)const
 	{
 		return ActionBeforeModify(tokenSequence);
 	}

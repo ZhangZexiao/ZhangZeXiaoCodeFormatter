@@ -11,10 +11,14 @@
 //carriage return is \r(rd)
 //whitespaces are \n(0x0a) \v(0x0b) \f(0x0c) \r(0x0d)
 //http://en.cppreference.com/w/cpp/string/byte/isspace
-//The Java language supports three types of comments −
+//The Java language supports three types of comments
 /* text */
 //text
 /** documentation */
+//Modifier_replace_java_comment_with_space.h
+//warning C4819 : The file contains a character that 
+//cannot be represented in the current code page(936).
+//Save the file in Unicode format to prevent data loss
 class Modifier_replace_java_comment_with_space : public Modifier_replace_cpp_comment_with_space
 {
 	//do nothing currently

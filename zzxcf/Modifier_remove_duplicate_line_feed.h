@@ -15,7 +15,7 @@
 class Modifier_remove_duplicate_line_feed : public IModifier_WhiteSpace
 {
 private:
-	void changeToken(TokenSequence::value_type&token)
+	void changeToken(TokenSequence::value_type&token)const
 	{
 		TokenSequence::value_type temp;
 		std::copy_if(token.begin(), token.end(), std::back_inserter(temp), [](const auto &c) { return StringsManager::GetString_LineFeed()[0] != c; });
