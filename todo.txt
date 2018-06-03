@@ -1,0 +1,5 @@
+7:06 AM 6/4/2018
+1.change modifier interface to modify file content string, or add preprocessor interface.
+2.add bom preprocessor.
+3.add line continuation preprocessor.
+4.add comment preprocessor.
